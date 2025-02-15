@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using OkeMotor.Data;
+using OkeMotor.Models.Entities;
+
 namespace OkeMotor
 {
     public class Program
@@ -5,6 +10,17 @@ namespace OkeMotor
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            //set up postgres
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+              options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
+              ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+
+            //set up identity
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
