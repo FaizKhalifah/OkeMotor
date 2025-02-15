@@ -5,7 +5,6 @@
 - Entity Core
 - Entity framework tools
 - Identity UI
-- 
 
 Command with nugget package manager : 
 - Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
