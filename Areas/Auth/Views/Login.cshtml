@@ -1,0 +1,8 @@
+﻿@model OkeMotor.Areas.Auth.ViewModels.LoginViewModel
+
+<h2>Login</h2>
+<form asp-action="Login">
+    <input asp-for="Email" placeholder="Email" />
+    <input asp-for="Password" type="password" placeholder="Password" />
+    <button type="submit">Login</button>
+</form>

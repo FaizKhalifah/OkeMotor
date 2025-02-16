@@ -11,6 +11,8 @@ Command with nugget package manager :
 - Install-Package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 - Install-Package Microsoft.EntityFrameworkCore.Tools
 - Install-Package Microsoft.AspNetCore.Identity.UI
+- Install-Package Microsoft.AspNetCore.Authentication.JwtBearer -Version 8.0.3
+- Install-Package Microsoft.IdentityModel.Tokens
 
 ## Set up postgre Database
 - Create your database

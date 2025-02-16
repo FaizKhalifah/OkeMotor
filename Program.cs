@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using OkeMotor.Areas.Auth.Services;
 using OkeMotor.Data;
 using OkeMotor.Models.Entities;
 using OkeMotor.Seeder;
@@ -24,9 +25,21 @@ namespace OkeMotor
 
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews()
+            .AddRazorOptions(options =>
+            {
+                options.AreaViewLocationFormats.Clear();
+                options.AreaViewLocationFormats.Add("/Areas/{2}/Views/{1}/{0}.cshtml");
+                options.AreaViewLocationFormats.Add("/Areas/{2}/Views/Shared/{0}.cshtml");
+                options.AreaViewLocationFormats.Add("/Areas/{2}/Views/{0}.cshtml"); // Tambahkan ini
+            });
+
+            //assign services
+           builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
             var app = builder.Build();
+
+   
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
