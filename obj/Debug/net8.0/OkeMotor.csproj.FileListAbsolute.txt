@@ -144,3 +144,12 @@ D:\Projekan\Personal\OkeMotor\obj\Debug\net8.0\OkeMotor.pdb
 D:\Projekan\Personal\OkeMotor\obj\Debug\net8.0\OkeMotor.genruntimeconfig.cache
 D:\Projekan\Personal\OkeMotor\obj\Debug\net8.0\ref\OkeMotor.dll
 D:\Projekan\Personal\OkeMotor\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projekan\Personal\OkeMotor\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
