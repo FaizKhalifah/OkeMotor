@@ -44,7 +44,12 @@ namespace OkeMotor
             //var scope = app.Services.CreateScope();
             //var services = scope.ServiceProvider;
 
-            //await DatabaseSeeder.SeedDataAsync(services);
+            //using (var scope = app.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    await DatabaseSeeder.SeedDataAsync(services); // Perhatikan bahwa ini ada dalam scope async
+            //}
+
 
             app.UseAuthorization();
 
