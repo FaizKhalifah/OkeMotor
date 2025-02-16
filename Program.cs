@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using OkeMotor.Areas.Auth.Services;
 using OkeMotor.Data;
 using OkeMotor.Models.Entities;
 using OkeMotor.Seeder;
@@ -27,6 +28,9 @@ namespace OkeMotor
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+
+            //assign services
+            builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
