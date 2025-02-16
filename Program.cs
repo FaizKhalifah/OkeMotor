@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OkeMotor.Data;
 using OkeMotor.Models.Entities;
+using OkeMotor.Seeder;
 
 namespace OkeMotor
 {
@@ -39,6 +40,16 @@ namespace OkeMotor
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //var scope = app.Services.CreateScope();
+            //var services = scope.ServiceProvider;
+
+            //using (var scope = app.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    await DatabaseSeeder.SeedDataAsync(services); // Perhatikan bahwa ini ada dalam scope async
+            //}
+
 
             app.UseAuthorization();
 
