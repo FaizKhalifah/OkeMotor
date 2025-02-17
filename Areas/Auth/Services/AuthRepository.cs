@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using OkeMotor.Areas.Auth.Model;
 using OkeMotor.Areas.Auth.ViewModels;
 using OkeMotor.Models.Entities;
+using OkeMotor.Utilites;
 
 namespace OkeMotor.Areas.Auth.Services
 {
@@ -8,7 +10,7 @@ namespace OkeMotor.Areas.Auth.Services
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-
+        private readonly IConfiguration _config;
         
 
         public AuthRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) { 
@@ -30,23 +32,29 @@ namespace OkeMotor.Areas.Auth.Services
                 return false;
             }
             await _userManager.AddToRoleAsync(user, "Pembeli");
-            return true;
+            return result.Succeeded;
         }
 
-        public async Task<string?> LoginAsync(LoginViewModel viewModel)
+        public async Task<bool> LoginAsync(LoginViewModel viewModel)
         {
             var user = await _userManager.FindByEmailAsync(viewModel.Email);
             if (user == null)
             {
-                return null;
+                return false;
             }
             var result = await _signInManager.PasswordSignInAsync(user, 
                 viewModel.Password, viewModel.RememberMe, false);
             if (!result.Succeeded)
             {
-                return null;
+                return false;
             }
-            return user.Email;
+            var token = JwtHelper.GenerateJwtToken(user, _config);
+            return result.Succeeded;
+        }
+
+        public async Task LogoutAsync()
+        {
+            await _signInManager.SignOutAsync();
         }
     }
 }

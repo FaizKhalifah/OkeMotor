@@ -19,9 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Auth\Controller\" />
+    <Folder Include="Areas\Home\" />
+    <Folder Include="Areas\Shop\" />
+    <Folder Include="Areas\Profile\" />
     <Folder Include="Models\DTO\" />
-    <Folder Include="Utilites\" />
   </ItemGroup>
 
 </Project>

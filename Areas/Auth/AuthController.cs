@@ -25,19 +25,11 @@ namespace OkeMotor.Areas.Auth
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            var response = await _authRepository.RegisterAsync(model);
+            if (response) return RedirectToAction("Login");
 
-            var result = await _authRepository.RegisterAsync(model);
-            if (!result)
-            {
-                ModelState.AddModelError(string.Empty, "Registration failed");
-                return View(model);
-            }
-
-            return RedirectToAction("Login");
+            ModelState.AddModelError("", "Registration failed.");
+            return View(model);
         }
 
         [HttpGet("login")]
