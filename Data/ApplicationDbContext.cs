@@ -11,6 +11,8 @@ namespace OkeMotor.Data
         {
         }
 
+        public DbSet<Motor> motors { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

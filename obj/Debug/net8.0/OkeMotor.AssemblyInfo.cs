@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OkeMotor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64cade4f83fb4f0512da8e46b2ef721c28e8df3b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29c0a55513e3fada51362089addaa80094fde4c2")]
 [assembly: System.Reflection.AssemblyProductAttribute("OkeMotor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OkeMotor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
