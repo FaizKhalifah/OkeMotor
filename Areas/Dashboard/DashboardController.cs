@@ -5,6 +5,9 @@ using OkeMotor.Models.Entities;
 
 namespace OkeMotor.Areas.Dashboard
 {
+
+    [Area("Dashboard")]
+    [Route("dashboard")]
     public class DashboardController : Controller
     {
         private readonly IDashboardService _dashboardService;
@@ -14,6 +17,7 @@ namespace OkeMotor.Areas.Dashboard
             _dashboardService = dashboardService;
         }
 
+        [HttpGet("index")]
         public async Task<IActionResult> Index()
         {
             var sellerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
