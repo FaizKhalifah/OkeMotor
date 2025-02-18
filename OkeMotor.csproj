@@ -15,14 +15,18 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Dashboard\Controllers\" />
+    <Folder Include="Areas\Dashboard\Models\" />
+    <Folder Include="Areas\Dashboard\ViewModel\" />
+    <Folder Include="Areas\Dashboard\Views\" />
     <Folder Include="Areas\Home\" />
     <Folder Include="Areas\Shop\" />
     <Folder Include="Areas\Profile\" />
-    <Folder Include="Models\DTO\" />
   </ItemGroup>
 
 </Project>

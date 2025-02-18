@@ -11,6 +11,8 @@ namespace OkeMotor.Data
         {
         }
 
+        public DbSet<Motor> motors { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -19,6 +21,12 @@ namespace OkeMotor.Data
             builder.Entity<ApplicationUser>()
                 .HasIndex(u => u.Role)
                 .IsUnique(false);
+
+            builder.Entity<Motor>()
+            .HasOne(m => m.Seller)
+            .WithMany(u => u.Motors)
+            .HasForeignKey(m => m.SellerId)
+            .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
