@@ -21,6 +21,12 @@ namespace OkeMotor.Data
             builder.Entity<ApplicationUser>()
                 .HasIndex(u => u.Role)
                 .IsUnique(false);
+
+            builder.Entity<Motor>()
+            .HasOne(m => m.Seller)
+            .WithMany(u => u.Motors)
+            .HasForeignKey(m => m.SellerId)
+            .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
