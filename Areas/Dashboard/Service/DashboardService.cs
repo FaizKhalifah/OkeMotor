@@ -1,4 +1,5 @@
-﻿using OkeMotor.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using OkeMotor.Data;
 using OkeMotor.Models.Entities;
 
 namespace OkeMotor.Areas.Dashboard.Service
@@ -15,7 +16,7 @@ namespace OkeMotor.Areas.Dashboard.Service
             return await _context.motors.Where(m => m.SellerId == sellerId).ToListAsync();
         }
 
-        public async Task<Motor> GetMotorByIdAsync(int id)
+        public async Task<Motor> GetMotorByIdAsync(Guid id)
         {
             return await _context.motors.FindAsync(id);
         }
@@ -32,7 +33,7 @@ namespace OkeMotor.Areas.Dashboard.Service
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteMotorAsync(int id)
+        public async Task DeleteMotorAsync(Guid id)
         {
             var motor = await _context.motors.FindAsync(id);
             if (motor != null)
