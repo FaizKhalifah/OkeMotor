@@ -1,0 +1,28 @@
+﻿@model IEnumerable<OkeMotor.Models.Entities.Motor>
+
+<h2>Dashboard Seller</h2>
+<a href="/Dashboard/Add">Tambah Motor</a>
+
+<table border="1">
+    <tr>
+        <th>Nama</th>
+        <th>Merk</th>
+        <th>Harga</th>
+        <th>Aksi</th>
+    </tr>
+    @foreach (var motor in Model)
+    {
+        <tr>
+            <td>@motor.Name</td>
+            <td>@motor.Brand</td>
+            <td>Rp. @motor.Price</td>
+            <td>
+                <a href="/Dashboard/Edit/@motor.Id">Edit</a> |
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" name="id" value="@motor.Id" />
+                    <button type="submit">Hapus</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

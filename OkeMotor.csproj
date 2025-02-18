@@ -20,10 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Dashboard\Controllers\" />
     <Folder Include="Areas\Dashboard\Models\" />
-    <Folder Include="Areas\Dashboard\ViewModel\" />
-    <Folder Include="Areas\Dashboard\Views\" />
     <Folder Include="Areas\Home\" />
     <Folder Include="Areas\Shop\" />
     <Folder Include="Areas\Profile\" />
