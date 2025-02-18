@@ -7,6 +7,7 @@
         public string Name { get; set; }
         public string PoliceNumber { get; set; }
         public string Quality { get; set; }
-        
+        public decimal Price { get; set; }
+
     }
 }

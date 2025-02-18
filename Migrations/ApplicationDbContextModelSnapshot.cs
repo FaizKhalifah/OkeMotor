@@ -245,6 +245,9 @@ namespace OkeMotor.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("Quality")
                         .IsRequired()
                         .HasColumnType("text");
