@@ -1,11 +1,12 @@
 ﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OkeMotor.Areas.Dashboard.Service;
 using OkeMotor.Models.Entities;
 
 namespace OkeMotor.Areas.Dashboard
 {
-
+    [Authorize]
     [Area("Dashboard")]
     [Route("dashboard")]
     public class DashboardController : Controller
@@ -25,12 +26,14 @@ namespace OkeMotor.Areas.Dashboard
             return View(motors);
         }
 
+        [HttpGet("Add")]
         public IActionResult Add()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("Add")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(Motor motor)
         {
             if (!ModelState.IsValid) return View(motor);

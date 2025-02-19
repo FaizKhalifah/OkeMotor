@@ -20,18 +20,28 @@ namespace OkeMotor.Areas.Auth.Services
 
         public async Task<bool> RegisterAsync(RegisterViewModel viewModel)
         {
+            if (string.IsNullOrEmpty(viewModel.Password) || string.IsNullOrEmpty(viewModel.Role))
+            {
+                throw new ArgumentNullException(nameof(viewModel.Role), "Role cannot be null.");
+            }
+
             var user = new ApplicationUser
             {
                 UserName = viewModel.Email,
                 Email = viewModel.Email,
+                Role=viewModel.Role,
                 EmailConfirmed = true
             };
             var result = await _userManager.CreateAsync(user,viewModel.Password);
             if (!result.Succeeded)
             {
+                foreach (var error in result.Errors)
+                {
+                    Console.WriteLine($"Error: {error.Description}");
+                }
                 return false;
             }
-            await _userManager.AddToRoleAsync(user, "Pembeli");
+            //await _userManager.AddToRoleAsync(user, "Pembeli");
             return result.Succeeded;
         }
 

@@ -1,5 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model OkeMotor.Models.Entities.Motor
+
+<h2>Tambah Motor</h2>
+
+<form asp-controller="Dashboard" asp-action="Add" method="post">
+    @Html.AntiForgeryToken() <!-- Tambahkan ini -->
+
+    <input asp-for="Name" placeholder="Nama Motor" required />
+    <input asp-for="Brand" placeholder="Merk Motor" required />
+    <input asp-for="Type" placeholder="Tipe Motor" required />
+    <input asp-for="Price" placeholder="Harga" type="number" required />
+    <input asp-for="PoliceNumber" placeholder="Nomor Polisi" required />
+    <textarea asp-for="Quality" placeholder="Quality"></textarea>
+
+    <button type="submit">Simpan</button>
+</form>
