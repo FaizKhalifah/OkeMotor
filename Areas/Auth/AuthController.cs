@@ -6,14 +6,13 @@ namespace OkeMotor.Areas.Auth
 {
     [Area("Auth")]
     [Route("Auth")]
-    [ApiController]
     public class AuthController : Controller
     {
         private readonly IAuthRepository _authRepository;
 
         public AuthController(IAuthRepository authRepository)
         {
-            authRepository = _authRepository;
+            _authRepository = authRepository;
         }
 
         [HttpGet("register")]
@@ -22,7 +21,7 @@ namespace OkeMotor.Areas.Auth
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             var response = await _authRepository.RegisterAsync(model);
@@ -38,7 +37,7 @@ namespace OkeMotor.Areas.Auth
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
